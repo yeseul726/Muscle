@@ -66,5 +66,11 @@ namespace muscle
             dumbbell dumbbell = new dumbbell();
             dumbbell.Show();
         }
+
+        private void pushup_Click(object sender, EventArgs e)
+        {
+            pushup pushup = new pushup();
+            pushup.Show();
+        }
     }
 }

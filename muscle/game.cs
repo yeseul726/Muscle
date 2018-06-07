@@ -52,6 +52,12 @@ namespace muscle
 
         private void button1_Click(object sender, EventArgs e)
         {
+            jump_rope jump_rope = new jump_rope();
+            jump_rope.Show();
+        }
+
+        private void game_Load(object sender, EventArgs e)
+        {
 
         }
     }

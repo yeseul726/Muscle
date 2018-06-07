@@ -69,7 +69,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "game";
             this.Text = "game";
-            //this.Paint += new System.Windows.Forms.PaintEventHandler(this.game_Load);
+            this.Load += new System.EventHandler(this.game_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.picProgress_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

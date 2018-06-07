@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace muscle
 {
-    public partial class jump_rope : Form
+    public partial class dumbbell : Form
     {
         int click_cnt = 0;
         int goal_num = 30;
@@ -22,7 +22,7 @@ namespace muscle
         private Pen thePen;
         private Brush theBrush_rect;
 
-        public jump_rope()
+        public dumbbell()
         {
             InitializeComponent();
 
@@ -37,17 +37,17 @@ namespace muscle
 
             game_result.Hide();
         }
-        
-        private void jump_rope_Load(object sender, EventArgs e)
+
+        private void dumbbell_Load(object sender, EventArgs e)
         {
-            jump.FlatStyle = FlatStyle.Flat;
-            jump.FlatAppearance.BorderSize = 0;
-            jump.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
-            jump_char.Load("jumprope1.png"); 
-            jump_char.SizeMode = PictureBoxSizeMode.StretchImage;
+            lift.FlatStyle = FlatStyle.Flat;
+            lift.FlatAppearance.BorderSize = 0;
+            lift.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            dumbbell_char.Load("dumbbell1.png");
+            dumbbell_char.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        
-        private void jump_rope_Paint(object sender, PaintEventArgs e)
+
+        private void dumbbell_Paint(object sender, PaintEventArgs e)
         {
             //timer 표시하자
             //theGameTick은 이상황에서 계속 0임, 안써줘됨
@@ -64,31 +64,32 @@ namespace muscle
                 game_result.Load("gameover.png");
                 game_result.SizeMode = PictureBoxSizeMode.StretchImage;
                 game_result.Show();
-                jump.Enabled = false;
+                lift.Enabled = false;
             }
         }
 
-        private void jump_Click(object sender, EventArgs e)
+        private void lift_Click(object sender, EventArgs e)
         {
             click_cnt++;
             if (click_cnt % 2 != 0)
             {
-                jump_char.Load("jumprope2.png");
-                jump_char.SizeMode = PictureBoxSizeMode.StretchImage;
-            } else if (click_cnt % 2 == 0)
+                dumbbell_char.Load("dumbbell2.png");
+                dumbbell_char.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else if (click_cnt % 2 == 0)
             {
-                jump_char.Load("jumprope1.png");
-                jump_char.SizeMode = PictureBoxSizeMode.StretchImage;
+                dumbbell_char.Load("dumbbell1.png");
+                dumbbell_char.SizeMode = PictureBoxSizeMode.StretchImage;
             }
 
-            if(click_cnt == goal_num)
+            if (click_cnt == goal_num)
             {
                 timer1.Stop();
                 game_result.Load("gameclear.png");
                 game_result.SizeMode = PictureBoxSizeMode.StretchImage;
                 game_result.Show();
                 //MessageBox.Show("성공!");
-                jump.Enabled = false;
+                lift.Enabled = false;
             }
         }
 

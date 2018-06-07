@@ -60,5 +60,11 @@ namespace muscle
         {
 
         }
+
+        private void dumbbell_Click(object sender, EventArgs e)
+        {
+            dumbbell dumbbell = new dumbbell();
+            dumbbell.Show();
+        }
     }
 }

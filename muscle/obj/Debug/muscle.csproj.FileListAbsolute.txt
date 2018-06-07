@@ -12,3 +12,4 @@ c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.intro.resources
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.game.resources
 C:\Users\Mirim\source\repos\Muscle\muscle\obj\Debug\muscle.csprojAssemblyReference.cache
 C:\Users\Mirim\source\repos\Muscle\muscle\obj\Debug\muscle.jump_rope.resources
+C:\Users\Mirim\source\repos\Muscle\muscle\obj\Debug\muscle.dumbbell.resources

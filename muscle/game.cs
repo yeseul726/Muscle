@@ -17,8 +17,8 @@ namespace muscle
         {
             InitializeComponent();
 
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.Image = System.Drawing.Image.FromFile("run.gif");
+            character.SizeMode = PictureBoxSizeMode.Zoom;
+            character.Image = System.Drawing.Image.FromFile("men3.png");
         }
         private void pictureBox1_Click(object sender, PaintEventArgs e)
         {

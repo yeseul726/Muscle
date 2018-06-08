@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(game));
+            this.character = new System.Windows.Forms.PictureBox();
             this.picProgress = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.dumbbell = new System.Windows.Forms.Button();
             this.pushup = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // character
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(139, 94);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(523, 299);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.character.BackColor = System.Drawing.Color.Transparent;
+            this.character.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("character.BackgroundImage")));
+            this.character.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.character.Location = new System.Drawing.Point(276, 100);
+            this.character.Name = "character";
+            this.character.Size = new System.Drawing.Size(164, 255);
+            this.character.TabIndex = 0;
+            this.character.TabStop = false;
             // 
             // picProgress
             // 
@@ -85,23 +89,26 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(727, 450);
             this.Controls.Add(this.pushup);
             this.Controls.Add(this.dumbbell);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picProgress);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.character);
+            this.DoubleBuffered = true;
             this.Name = "game";
             this.Text = "game";
             this.Load += new System.EventHandler(this.game_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.picProgress_Paint);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.character)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox character;
         private System.Windows.Forms.ProgressBar picProgress;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button dumbbell;

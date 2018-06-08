@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -46,10 +47,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("-윤고딕340", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(333, 57);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(306, 57);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 32);
+            this.label4.Size = new System.Drawing.Size(98, 31);
             this.label4.TabIndex = 12;
             this.label4.Text = "회원가입";
             // 
@@ -123,6 +125,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -131,7 +134,7 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(194, 68);
+            this.groupBox1.Location = new System.Drawing.Point(167, 68);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(390, 263);
             this.groupBox1.TabIndex = 13;
@@ -139,7 +142,7 @@
             // 
             // signUp
             // 
-            this.signUp.Location = new System.Drawing.Point(311, 353);
+            this.signUp.Location = new System.Drawing.Point(275, 353);
             this.signUp.Name = "signUp";
             this.signUp.Size = new System.Drawing.Size(75, 23);
             this.signUp.TabIndex = 14;
@@ -149,7 +152,7 @@
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(411, 353);
+            this.reset.Location = new System.Drawing.Point(375, 353);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(75, 23);
             this.reset.TabIndex = 15;
@@ -160,11 +163,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(727, 450);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.signUp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.Name = "Form2";
             this.Text = "Form2";
             this.groupBox1.ResumeLayout(false);

@@ -13,7 +13,7 @@ namespace muscle
     public partial class jump_rope : Form
     {
         int click_cnt = 0;
-        int goal_num = 30;
+        int goal_num = 50;
 
         private int theGameTick;
         private int theTick;
@@ -35,9 +35,17 @@ namespace muscle
             thePen = new Pen(Color.Red);
             theBrush_rect = new SolidBrush(Color.Red);
 
+            /*count_label.BackColor = Color.Transparent;
+            count_label.Parent = this;*/
+
+            count_label.Parent = count_bg;
+            count_label.BackColor = Color.Transparent;
+            count_label.BringToFront();
+
             game_result.Hide();
         }
-        
+
+
         private void jump_rope_Load(object sender, EventArgs e)
         {
             jump.FlatStyle = FlatStyle.Flat;
@@ -71,6 +79,7 @@ namespace muscle
         private void jump_Click(object sender, EventArgs e)
         {
             click_cnt++;
+            count_label.Text = (goal_num - click_cnt).ToString();
             if (click_cnt % 2 != 0)
             {
                 jump_char.Load("jumprope2.png");

@@ -34,8 +34,11 @@
             this.lift = new System.Windows.Forms.Button();
             this.game_result = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.count_label = new System.Windows.Forms.Label();
+            this.count_bg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dumbbell_char)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.game_result)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.count_bg)).BeginInit();
             this.SuspendLayout();
             // 
             // dumbbell_char
@@ -72,6 +75,28 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // count_label
+            // 
+            this.count_label.AutoSize = true;
+            this.count_label.BackColor = System.Drawing.Color.Transparent;
+            this.count_label.Font = new System.Drawing.Font("Munro Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count_label.Location = new System.Drawing.Point(363, 35);
+            this.count_label.Name = "count_label";
+            this.count_label.Size = new System.Drawing.Size(22, 17);
+            this.count_label.TabIndex = 6;
+            this.count_label.Text = "50";
+            // 
+            // count_bg
+            // 
+            this.count_bg.BackColor = System.Drawing.Color.Transparent;
+            this.count_bg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("count_bg.BackgroundImage")));
+            this.count_bg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.count_bg.Location = new System.Drawing.Point(277, 28);
+            this.count_bg.Name = "count_bg";
+            this.count_bg.Size = new System.Drawing.Size(127, 32);
+            this.count_bg.TabIndex = 5;
+            this.count_bg.TabStop = false;
+            // 
             // dumbbell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -79,6 +104,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(727, 450);
+            this.Controls.Add(this.count_label);
+            this.Controls.Add(this.count_bg);
             this.Controls.Add(this.game_result);
             this.Controls.Add(this.lift);
             this.Controls.Add(this.dumbbell_char);
@@ -89,7 +116,9 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.dumbbell_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.dumbbell_char)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.game_result)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.count_bg)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,5 +128,7 @@
         private System.Windows.Forms.Button lift;
         private System.Windows.Forms.PictureBox game_result;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label count_label;
+        private System.Windows.Forms.PictureBox count_bg;
     }
 }

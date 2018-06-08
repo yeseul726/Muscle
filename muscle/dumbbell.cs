@@ -13,7 +13,7 @@ namespace muscle
     public partial class dumbbell : Form
     {
         int click_cnt = 0;
-        int goal_num = 30;
+        int goal_num = 50;
 
         private int theGameTick;
         private int theTick;
@@ -71,6 +71,7 @@ namespace muscle
         private void lift_Click(object sender, EventArgs e)
         {
             click_cnt++;
+            count_label.Text = (goal_num - click_cnt).ToString();
             if (click_cnt % 2 != 0)
             {
                 dumbbell_char.Load("dumbbell2.png");

@@ -25,9 +25,17 @@ namespace muscle
         private Pen thePen;
         private Brush theBrush_rect;
 
-        public dumbbell()
+        string name = "";
+        string id = "";
+        string password = "";
+
+        public dumbbell(string name, string id, string password)
         {
             InitializeComponent();
+
+            this.name = name;
+            this.id = id;
+            this.password = password;
 
             theGameTick = 0;
             theTick = 0;
@@ -124,7 +132,8 @@ namespace muscle
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand sqlComm = new SqlCommand();
             sqlComm.Connection = sqlConn;
-            sqlComm.CommandText = "select fat from Mus_member_item where member_id=1";
+            sqlComm.CommandText = "select fat from Mus_member where email=@id";
+            sqlComm.Parameters.AddWithValue("@id", id);
             sqlConn.Open();
             using (SqlDataReader SqlRs = sqlComm.ExecuteReader())
             {
@@ -143,8 +152,9 @@ namespace muscle
                 {
                     conn.Open();
                     using (SqlCommand cmd =
-                        new SqlCommand("UPDATE Mus_member_item SET fat=@fat WHERE member_id=1", conn))
+                        new SqlCommand("UPDATE Mus_member SET fat=@fat WHERE email=@id", conn))
                     {
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@fat", member_fat + get_fat);
 
                         int rows = cmd.ExecuteNonQuery();
@@ -172,7 +182,8 @@ namespace muscle
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand sqlComm = new SqlCommand();
             sqlComm.Connection = sqlConn;
-            sqlComm.CommandText = "select muscle from Mus_member_item where member_id=1";
+            sqlComm.CommandText = "select muscle from Mus_member where email=@id";
+            sqlComm.Parameters.AddWithValue("@id", id);
             sqlConn.Open();
             using (SqlDataReader SqlRs = sqlComm.ExecuteReader())
             {
@@ -191,8 +202,9 @@ namespace muscle
                 {
                     conn.Open();
                     using (SqlCommand cmd =
-                        new SqlCommand("UPDATE Mus_member_item SET muscle=@muscle WHERE member_id=1", conn))
+                        new SqlCommand("UPDATE Mus_member SET muscle=@muscle WHERE email=@id", conn))
                     {
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@muscle", member_muscle + get_muscle);
 
                         int rows = cmd.ExecuteNonQuery();

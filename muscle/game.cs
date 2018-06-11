@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,23 @@ namespace muscle
         private Brush theBrush;
         private Pen thePen;
         private Brush theBrush_rect;
+        string name = "";
+        string id = "";
+        string password = "";
+        int fat = 0;
+        int muscle = 0;
+        int fat_limit = 0;
 
 
-        public game()
+        public game(string name, string id, string password)
         {
             InitializeComponent();
+
+            this.name = name;
+            this.id = id;
+            this.password = password;
+
+            //MessageBox.Show(name + ", "+id + ", "+password);
 
             theGameTick = 0;
             theTick = 0;
@@ -33,10 +46,60 @@ namespace muscle
             thePen = new Pen(Color.Red);
             theBrush_rect = new SolidBrush(Color.Red);
 
-            character.SizeMode = PictureBoxSizeMode.Zoom;
-            character.Image = System.Drawing.Image.FromFile("men3.png");
-
             foodBtn_input_img();
+
+            // 먼저 있는 회원인지 체크하고
+            // Sql 연결정보(서버:127.0.0.1, 포트:3535, 아이디:sa, 비밀번호 : password, db : member)
+            string connectionString = "Data Source = 14.63.199.209,5433; Initial Catalog = Mirim2018; User ID = mirim2018; Password = alfla@)!*";
+            // Sql 새연결정보 생성
+            SqlConnection sqlConn = new SqlConnection(connectionString);
+            SqlCommand sqlComm = new SqlCommand();
+            sqlComm.Connection = sqlConn;
+            sqlComm.CommandText = "select fat, muscle from Mus_member where email = @id";
+
+            sqlComm.Parameters.AddWithValue("@id", id);
+
+            sqlConn.Open();
+            using (SqlDataReader SqlRs = sqlComm.ExecuteReader())
+            {
+                
+                while (SqlRs.Read())
+                {
+                    //MessageBox.Show(string.Format("{0}", SqlRs[0].ToString()));
+                    MessageBox.Show(SqlRs[0].ToString());
+                    MessageBox.Show(SqlRs[1].ToString());
+                    
+                    fat = Int32.Parse(SqlRs[0].ToString());
+                    muscle = Int32.Parse(SqlRs[1].ToString());
+                    fat_limit = muscle / fat;
+                    MessageBox.Show(fat_limit.ToString());
+
+
+                }
+            }
+            sqlConn.Close();
+
+            if(fat_limit < 0)
+            {
+                character.SizeMode = PictureBoxSizeMode.Zoom;
+                character.Image = System.Drawing.Image.FromFile("men1.png");
+            }
+            else if(fat_limit >= 0 && fat_limit < 1)
+            {
+                character.SizeMode = PictureBoxSizeMode.Zoom;
+                character.Image = System.Drawing.Image.FromFile("men2.png");
+            }
+            else if (fat_limit >= 1 && fat_limit < 2)
+            {
+                character.SizeMode = PictureBoxSizeMode.Zoom;
+                character.Image = System.Drawing.Image.FromFile("men3.png");
+            }
+            else
+            {
+                character.SizeMode = PictureBoxSizeMode.Zoom;
+                character.Image = System.Drawing.Image.FromFile("men4.png");
+            }
+
 
         }
 
@@ -100,17 +163,17 @@ namespace muscle
         {
             if(button_name.ImageLocation.Equals("fastfood1.png")) //햄버거. 팔굽혀펴기
             {
-                pushup pushup = new pushup();
+                pushup pushup = new pushup(name, id, password);
                 pushup.Show();
             }
             else if(button_name.ImageLocation.Equals("fastfood2.png")) //감자튀김. 아령
             {
-                dumbbell dumbbell = new dumbbell();
+                dumbbell dumbbell = new dumbbell(name, id, password);
                 dumbbell.Show();
             }
             else if(button_name.ImageLocation.Equals("fastfood3.png")) //아이스크림. 줄넘기
             {
-                jump_rope jump_rope = new jump_rope();
+                jump_rope jump_rope = new jump_rope(name, id, password);
                 jump_rope.Show();
             }
             else {

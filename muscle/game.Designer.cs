@@ -50,7 +50,6 @@
             // character
             // 
             this.character.BackColor = System.Drawing.Color.Transparent;
-            this.character.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("character.BackgroundImage")));
             this.character.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.character.Location = new System.Drawing.Point(276, 168);
             this.character.Name = "character";

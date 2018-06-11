@@ -64,7 +64,7 @@ namespace muscle
                 Console.WriteLine("email");
                 while (SqlRs.Read())
                 {
-                    MessageBox.Show(string.Format("{0}", SqlRs[0].ToString()));
+                    //MessageBox.Show(string.Format("{0}", SqlRs[0].ToString()));
                     if (SqlRs[0].ToString().Equals(id)){ // DB에서 읽어온 값이랑 사용자가 입력한 값이랑 동일하면
                         idCheck++;
                     }
@@ -82,7 +82,7 @@ namespace muscle
                     {
                         conn.Open();
                         using (SqlCommand cmd =
-                            new SqlCommand("INSERT INTO Mus_member VALUES(@name, @email, @password,1,1)", conn)) //idx는 기본키
+                            new SqlCommand("INSERT INTO Mus_member VALUES(@name, @email, @password,1,1, 1000, 200)", conn)) //idx는 기본키
                         {
                             //cmd.Parameters.AddWithValue("@idx", null);
                             cmd.Parameters.AddWithValue("@name", name);

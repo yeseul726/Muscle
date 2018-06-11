@@ -15,8 +15,8 @@ namespace muscle
         public Form1()
         {
             InitializeComponent();
-        }
-
+        }      
+        //로그인
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("서비스 준비 중 입니다.");
@@ -24,6 +24,7 @@ namespace muscle
             game.Show();
         }
 
+        //회원가입
         private void button2_Click(object sender, EventArgs e)
         {
             Form2 join = new Form2();

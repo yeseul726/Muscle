@@ -37,6 +37,7 @@
             this.game_result = new System.Windows.Forms.PictureBox();
             this.count_bg = new System.Windows.Forms.PictureBox();
             this.count_label = new System.Windows.Forms.Label();
+            this.result = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.jump_char)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.game_result)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.count_bg)).BeginInit();
@@ -96,13 +97,23 @@
             // count_label
             // 
             this.count_label.AutoSize = true;
-            this.count_label.BackColor = System.Drawing.Color.Transparent;
+            this.count_label.BackColor = System.Drawing.Color.White;
             this.count_label.Font = new System.Drawing.Font("Munro Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.count_label.Location = new System.Drawing.Point(366, 29);
+            this.count_label.Location = new System.Drawing.Point(361, 29);
             this.count_label.Name = "count_label";
             this.count_label.Size = new System.Drawing.Size(22, 17);
             this.count_label.TabIndex = 4;
             this.count_label.Text = "50";
+            // 
+            // result
+            // 
+            this.result.AutoSize = true;
+            this.result.BackColor = System.Drawing.Color.Transparent;
+            this.result.Font = new System.Drawing.Font("소야곧은10", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.result.Location = new System.Drawing.Point(42, 138);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(0, 33);
+            this.result.TabIndex = 5;
             // 
             // jump_rope
             // 
@@ -111,6 +122,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(727, 450);
+            this.Controls.Add(this.result);
             this.Controls.Add(this.count_label);
             this.Controls.Add(this.count_bg);
             this.Controls.Add(this.game_result);
@@ -138,5 +150,6 @@
         private System.Windows.Forms.PictureBox game_result;
         private System.Windows.Forms.PictureBox count_bg;
         private System.Windows.Forms.Label count_label;
+        private System.Windows.Forms.Label result;
     }
 }

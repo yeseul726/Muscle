@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace muscle
     {
         int click_cnt = 0;
         int goal_num = 50;
+        int get_fat;
+        int get_muscle;
 
         private int theGameTick;
         private int theTick;
@@ -36,6 +39,10 @@ namespace muscle
             theBrush_rect = new SolidBrush(Color.Red);
 
             game_result.Hide();
+
+            Random rand = new Random();
+            get_muscle = rand.Next(100, 121); //100~120 사이 랜덤 근육량
+            get_fat = rand.Next(70, 91); // 70~90 랜덤 지방량
         }
 
         private void dumbbell_Load(object sender, EventArgs e)
@@ -51,7 +58,7 @@ namespace muscle
         {
             //timer 표시하자
             //theGameTick은 이상황에서 계속 0임, 안써줘됨
-            int time = 10 - (theTick - theGameTick) / (1000 / timer1.Interval); //100초 제한, 100, 99, 98
+            int time = 10 - (theTick - theGameTick) / (500 / timer1.Interval); //100초 제한, 100, 99, 98
             //String stringTime = string.Format("Time : {0:D2}", time);
             //e.Graphics.DrawString(stringTime, theFont, theBrush, 0, 10);
             //e.Graphics.DrawRectangle(thePen, 0, 0, time, 10);
@@ -64,7 +71,9 @@ namespace muscle
                 game_result.Load("gameover.png");
                 game_result.SizeMode = PictureBoxSizeMode.StretchImage;
                 game_result.Show();
+                input_fat_result();
                 lift.Enabled = false;
+                result.Text = "지방량 " + get_fat + " 획득";
             }
         }
 
@@ -91,6 +100,8 @@ namespace muscle
                 game_result.Show();
                 //MessageBox.Show("성공!");
                 lift.Enabled = false;
+                input_muscle_result();
+                result.Text = "근육량 " + get_muscle + " 획득";
             }
         }
 
@@ -100,6 +111,102 @@ namespace muscle
             //100번 호출 -> 5000m/s -> 5초 증가
             theTick++;
             Invalidate(); //새로그려라
+        }
+
+        private void input_fat_result()
+        {
+            string fat = "";
+            int member_fat = 0;
+
+            // Sql 연결정보(서버:127.0.0.1, 포트:3535, 아이디:sa, 비밀번호 : password, db : member)
+            string connectionString = "Data Source = 14.63.199.209,5433; Initial Catalog = Mirim2018; User ID = mirim2018; Password = alfla@)!*";
+            // Sql 새연결정보 생성
+            SqlConnection sqlConn = new SqlConnection(connectionString);
+            SqlCommand sqlComm = new SqlCommand();
+            sqlComm.Connection = sqlConn;
+            sqlComm.CommandText = "select fat from Mus_member_item where member_id=1";
+            sqlConn.Open();
+            using (SqlDataReader SqlRs = sqlComm.ExecuteReader())
+            {
+                while (SqlRs.Read())
+                {
+                    fat = SqlRs[0].ToString();
+                    member_fat = Convert.ToInt32(fat);
+                }
+            }
+            sqlConn.Close();
+
+            try
+            {
+                //string connectionString = "Data Source = 14.63.199.209,5433; Initial Catalog = Mirim2018; User ID = mirim2018; Password = alfla@)!*";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd =
+                        new SqlCommand("UPDATE Mus_member_item SET fat=@fat WHERE member_id=1", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@fat", member_fat + get_fat);
+
+                        int rows = cmd.ExecuteNonQuery();
+
+                        //rows number of record got inserted
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("안됨");
+                //Log exception
+                //Display Error message
+            }
+        }
+
+        private void input_muscle_result()
+        {
+            string muscle = "";
+            int member_muscle = 0;
+
+            // Sql 연결정보(서버:127.0.0.1, 포트:3535, 아이디:sa, 비밀번호 : password, db : member)
+            string connectionString = "Data Source = 14.63.199.209,5433; Initial Catalog = Mirim2018; User ID = mirim2018; Password = alfla@)!*";
+            // Sql 새연결정보 생성
+            SqlConnection sqlConn = new SqlConnection(connectionString);
+            SqlCommand sqlComm = new SqlCommand();
+            sqlComm.Connection = sqlConn;
+            sqlComm.CommandText = "select muscle from Mus_member_item where member_id=1";
+            sqlConn.Open();
+            using (SqlDataReader SqlRs = sqlComm.ExecuteReader())
+            {
+                while (SqlRs.Read())
+                {
+                    muscle = SqlRs[0].ToString();
+                    member_muscle = Convert.ToInt32(muscle);
+                }
+            }
+            sqlConn.Close();
+
+            try
+            {
+                //string connectionString = "Data Source = 14.63.199.209,5433; Initial Catalog = Mirim2018; User ID = mirim2018; Password = alfla@)!*";
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd =
+                        new SqlCommand("UPDATE Mus_member_item SET muscle=@muscle WHERE member_id=1", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@muscle", member_muscle + get_muscle);
+
+                        int rows = cmd.ExecuteNonQuery();
+
+                        //rows number of record got inserted
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("안됨");
+                //Log exception
+                //Display Error message
+            }
         }
     }
 }

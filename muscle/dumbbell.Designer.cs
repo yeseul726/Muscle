@@ -36,6 +36,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.count_label = new System.Windows.Forms.Label();
             this.count_bg = new System.Windows.Forms.PictureBox();
+            this.result = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dumbbell_char)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.game_result)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.count_bg)).BeginInit();
@@ -78,9 +79,9 @@
             // count_label
             // 
             this.count_label.AutoSize = true;
-            this.count_label.BackColor = System.Drawing.Color.Transparent;
+            this.count_label.BackColor = System.Drawing.Color.White;
             this.count_label.Font = new System.Drawing.Font("Munro Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.count_label.Location = new System.Drawing.Point(363, 35);
+            this.count_label.Location = new System.Drawing.Point(357, 35);
             this.count_label.Name = "count_label";
             this.count_label.Size = new System.Drawing.Size(22, 17);
             this.count_label.TabIndex = 6;
@@ -97,6 +98,16 @@
             this.count_bg.TabIndex = 5;
             this.count_bg.TabStop = false;
             // 
+            // result
+            // 
+            this.result.AutoSize = true;
+            this.result.BackColor = System.Drawing.Color.Transparent;
+            this.result.Font = new System.Drawing.Font("소야곧은10", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.result.Location = new System.Drawing.Point(42, 138);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(0, 33);
+            this.result.TabIndex = 10;
+            // 
             // dumbbell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -104,6 +115,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(727, 450);
+            this.Controls.Add(this.result);
             this.Controls.Add(this.count_label);
             this.Controls.Add(this.count_bg);
             this.Controls.Add(this.game_result);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label count_label;
         private System.Windows.Forms.PictureBox count_bg;
+        private System.Windows.Forms.Label result;
     }
 }

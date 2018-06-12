@@ -95,6 +95,12 @@
     <Compile Include="pushup.Designer.cs">
       <DependentUpon>pushup.cs</DependentUpon>
     </Compile>
+    <Compile Include="store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="store.Designer.cs">
+      <DependentUpon>store.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dumbbell.resx">
       <DependentUpon>dumbbell.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +130,9 @@
     </Compile>
     <EmbeddedResource Include="pushup.resx">
       <DependentUpon>pushup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="store.resx">
+      <DependentUpon>store.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Models\Mus_member.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

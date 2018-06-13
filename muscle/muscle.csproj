@@ -52,17 +52,17 @@
     <Compile Include="dumbbell.Designer.cs">
       <DependentUpon>dumbbell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="join.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="join.Designer.cs">
+      <DependentUpon>join.cs</DependentUpon>
     </Compile>
     <Compile Include="game.cs">
       <SubType>Form</SubType>
@@ -104,11 +104,11 @@
     <EmbeddedResource Include="dumbbell.resx">
       <DependentUpon>dumbbell.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="join.resx">
+      <DependentUpon>join.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="game.resx">
       <DependentUpon>game.cs</DependentUpon>

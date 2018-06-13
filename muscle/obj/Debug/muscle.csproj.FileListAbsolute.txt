@@ -1,13 +1,11 @@
 c:\users\mirim\source\repos\muscle\muscle\bin\Debug\muscle.exe.config
 c:\users\mirim\source\repos\muscle\muscle\bin\Debug\muscle.exe
 c:\users\mirim\source\repos\muscle\muscle\bin\Debug\muscle.pdb
-c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.Form1.resources
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.Properties.Resources.resources
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.csproj.GenerateResource.cache
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.csproj.CoreCompileInputs.cache
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.exe
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.pdb
-c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.Form2.resources
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.intro.resources
 c:\users\mirim\source\repos\muscle\muscle\obj\Debug\muscle.game.resources
 C:\Users\Mirim\source\repos\Muscle\muscle\obj\Debug\muscle.csprojAssemblyReference.cache
@@ -46,3 +44,6 @@ C:\Users\Mirim\source\repos\muscle\Muscle\muscle\obj\Debug\muscle.csproj.Generat
 C:\Users\Mirim\source\repos\muscle\Muscle\muscle\obj\Debug\muscle.csproj.CoreCompileInputs.cache
 C:\Users\Mirim\source\repos\muscle\Muscle\muscle\obj\Debug\muscle.exe
 C:\Users\Mirim\source\repos\muscle\Muscle\muscle\obj\Debug\muscle.pdb
+C:\Users\Mirim\source\repos\Muscle\muscle\obj\Debug\muscle.store.resources
+C:\Users\Mirim\source\repos\Muscle\muscle\obj\Debug\muscle.login.resources
+C:\Users\Mirim\source\repos\Muscle\muscle\obj\Debug\muscle.join.resources

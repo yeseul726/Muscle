@@ -38,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.store = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.character)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.food_btn1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.food_btn2)).BeginInit();
@@ -45,6 +46,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.store)).BeginInit();
             this.SuspendLayout();
             // 
             // character
@@ -124,6 +126,18 @@
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
+            // store
+            // 
+            this.store.BackColor = System.Drawing.Color.Transparent;
+            this.store.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("store.BackgroundImage")));
+            this.store.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.store.Location = new System.Drawing.Point(665, 12);
+            this.store.Name = "store";
+            this.store.Size = new System.Drawing.Size(50, 50);
+            this.store.TabIndex = 11;
+            this.store.TabStop = false;
+            this.store.Click += new System.EventHandler(this.store_Click);
+            // 
             // game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -132,6 +146,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(727, 450);
+            this.Controls.Add(this.store);
             this.Controls.Add(this.food_btn2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.food_btn3);
@@ -150,6 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.store)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -163,5 +179,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox store;
     }
 }

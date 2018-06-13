@@ -22,7 +22,7 @@ namespace muscle
             System.Threading.Thread.Sleep(3000);
             this.Close();
 
-            Form1 login = new Form1();
+            login login = new login();
             login.Show();
             
         }

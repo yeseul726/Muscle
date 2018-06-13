@@ -1,6 +1,6 @@
 ﻿namespace muscle
 {
-    partial class Form1
+    partial class login
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,51 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.login = new System.Windows.Forms.Button();
-            this.join = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.join_btn = new System.Windows.Forms.PictureBox();
+            this.login_btn = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.join_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.login_btn)).BeginInit();
             this.SuspendLayout();
-            // 
-            // login
-            // 
-            this.login.Location = new System.Drawing.Point(251, 51);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(58, 58);
-            this.login.TabIndex = 0;
-            this.login.Text = "로그인";
-            this.login.UseVisualStyleBackColor = true;
-            this.login.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // join
-            // 
-            this.join.Location = new System.Drawing.Point(41, 115);
-            this.join.Name = "join";
-            this.join.Size = new System.Drawing.Size(268, 30);
-            this.join.TabIndex = 1;
-            this.join.Text = "회원가입";
-            this.join.UseVisualStyleBackColor = true;
-            this.join.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(41, 51);
+            this.textBox1.Location = new System.Drawing.Point(71, 51);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 26);
+            this.textBox1.Size = new System.Drawing.Size(174, 26);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(41, 83);
+            this.textBox2.Location = new System.Drawing.Point(71, 83);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 26);
+            this.textBox2.Size = new System.Drawing.Size(174, 26);
             this.textBox2.TabIndex = 3;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
@@ -90,17 +74,59 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.join_btn);
+            this.groupBox1.Controls.Add(this.login_btn);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.join);
-            this.groupBox1.Controls.Add(this.login);
             this.groupBox1.Location = new System.Drawing.Point(189, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(348, 179);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // Form1
+            // join_btn
+            // 
+            this.join_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("join_btn.BackgroundImage")));
+            this.join_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.join_btn.Location = new System.Drawing.Point(41, 115);
+            this.join_btn.Name = "join_btn";
+            this.join_btn.Size = new System.Drawing.Size(268, 30);
+            this.join_btn.TabIndex = 6;
+            this.join_btn.TabStop = false;
+            this.join_btn.Click += new System.EventHandler(this.join_btn_Click);
+            // 
+            // login_btn
+            // 
+            this.login_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("login_btn.BackgroundImage")));
+            this.login_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.login_btn.Location = new System.Drawing.Point(251, 51);
+            this.login_btn.Name = "login_btn";
+            this.login_btn.Size = new System.Drawing.Size(58, 58);
+            this.login_btn.TabIndex = 6;
+            this.login_btn.TabStop = false;
+            this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 12);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "ID";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "PW";
+            // 
+            // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,23 +136,26 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
+            this.Name = "login";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.join_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.login_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button login;
-        private System.Windows.Forms.Button join;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox login_btn;
+        private System.Windows.Forms.PictureBox join_btn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

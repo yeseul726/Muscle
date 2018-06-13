@@ -66,13 +66,13 @@ namespace muscle
                 while (SqlRs.Read())
                 {
                     //MessageBox.Show(string.Format("{0}", SqlRs[0].ToString()));
-                    MessageBox.Show(SqlRs[0].ToString());
-                    MessageBox.Show(SqlRs[1].ToString());
+                    //MessageBox.Show(SqlRs[0].ToString());
+                    //MessageBox.Show(SqlRs[1].ToString());
                     
                     fat = Int32.Parse(SqlRs[0].ToString());
                     muscle = Int32.Parse(SqlRs[1].ToString());
                     fat_limit = muscle / fat;
-                    MessageBox.Show(fat_limit.ToString());
+                    //MessageBox.Show(fat_limit.ToString());
 
 
                 }
@@ -202,6 +202,12 @@ namespace muscle
             //100번 호출 -> 5000m/s -> 5초 증가
             theTick++;
             Invalidate(); //새로그려라
+        }
+
+        private void store_Click(object sender, EventArgs e)
+        {
+            store store = new store(name, id, password);
+            store.Show();
         }
     }
 }

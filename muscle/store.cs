@@ -15,23 +15,34 @@ namespace muscle
     {
         int fat = 0;
         int muscle = 0;
+
         String food_name = "";
         List<List<string>> item_store = new List<List<string>>();
         List<string> item_name = new List<string>();
         List<string> dumbbel = new List<string>();
         List<Label> item = new List<Label>();
 
-        string[,] tmpName = new string[3, 3];
+        string name = "";
+        string id = "";
+        string password = "";
 
-        int sw = 0;
         int cnt = 0;
 
         int width = 240;
         int height = 120;
 
+        int member_dumbbel_su = 0;
+
         public store(string name, string id, string password)
         {
             InitializeComponent();
+
+            this.name = name;
+            this.id = id;
+            this.password = password;
+
+            member_info(id);//회원이 가지고 있는 아령 수, 지방량, 근육량 가져오기
+
             item_info();
 
             System.Windows.Forms.Label label1;
@@ -68,7 +79,6 @@ namespace muscle
                     this.Controls.Add(label2);
                 }
             }
-
         }
 
         private void howtoshop_Click(object sender, EventArgs e)
@@ -133,6 +143,32 @@ namespace muscle
             buy_food(food_name);
         }
 
+        public void member_info(string id)
+        {
+            string connectionString = "Data Source = 14.63.199.209,5433; Initial Catalog = Mirim2018; User ID = mirim2018; Password = alfla@)!*";
+            // Sql 새연결정보 생성
+            SqlConnection sqlConn = new SqlConnection(connectionString);
+            SqlCommand sqlComm = new SqlCommand();
+            sqlComm.Connection = sqlConn;
+            sqlComm.CommandText = "select dumbbell, fat, muscle from Mus_member where email = @id";
+
+            sqlComm.Parameters.AddWithValue("@id", id);
+
+            sqlConn.Open();
+            using (SqlDataReader SqlRs = sqlComm.ExecuteReader())
+            {
+
+                while (SqlRs.Read())
+                {
+                    dumbbell_num.Text = SqlRs[0].ToString();
+                    member_dumbbel_su = Convert.ToInt32(SqlRs[0]);
+                    fat = Convert.ToInt32(SqlRs[1]);
+                    muscle = Convert.ToInt32(SqlRs[2]);
+                }
+            }
+            sqlConn.Close();
+        }
+
         public void buy_food(string food_name)
         {
 
@@ -151,10 +187,38 @@ namespace muscle
 
                 while (SqlRs.Read())
                 {
-                    MessageBox.Show(SqlRs[0].ToString());
-                    MessageBox.Show(SqlRs[1].ToString());
-                    MessageBox.Show(SqlRs[2].ToString());
-                    MessageBox.Show(SqlRs[3].ToString());
+                    //MessageBox.Show(SqlRs[0].ToString()); // 아령
+                    //MessageBox.Show(SqlRs[1].ToString()); // 효과 문구
+                    //MessageBox.Show(SqlRs[2].ToString()); // 지방량
+                    //MessageBox.Show(SqlRs[3].ToString()); // 근육량
+
+                    if (member_dumbbel_su >= Convert.ToInt32(SqlRs[0]))// 살 수 있음
+                    {
+                        MessageBox.Show("섭취 완료!\n\n[" + SqlRs[1].ToString()+"]");
+                        // 섭취했으니 업데이트
+                        member_dumbbel_su -= Convert.ToInt32(SqlRs[0]);
+                        fat += Convert.ToInt32(SqlRs[2]);
+                        muscle += Convert.ToInt32(SqlRs[3]);
+
+                        SqlRs.Close();
+
+                        sqlComm.CommandText = "update Mus_member set dumbbell = @dumbbell, fat = @fat, muscle = @muscle where email = @id";
+                        sqlComm.Parameters.AddWithValue("@dumbbell", member_dumbbel_su);
+                        sqlComm.Parameters.AddWithValue("@fat", fat);
+                        sqlComm.Parameters.AddWithValue("@muscle", muscle);
+                        sqlComm.Parameters.AddWithValue("@id", id);
+
+                        int rows = sqlComm.ExecuteNonQuery();
+
+                        member_info(id);
+
+                        break;
+                    }
+                    else // 아령이 부족해요
+                    {
+                        MessageBox.Show("이런~ 아령이 부족해요");
+                    }
+
                 }
             }
             sqlConn.Close();

@@ -74,7 +74,7 @@ namespace muscle
                     label2.Name = "food_explain" + i.ToString();
                     label2.Size = new System.Drawing.Size(90, 15);
                     label2.TabIndex = i;
-                    label2.Text = dumbbel[cnt++]+"개";
+                    label2.Text = dumbbel[cnt++]+"[아령]";
 
                     this.Controls.Add(label2);
                 }

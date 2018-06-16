@@ -82,6 +82,12 @@ namespace muscle
                 input_fat_result();
                 pushup_btn.Enabled = false;
                 result.Text = "지방량 " + get_fat + " 획득";
+                /*
+                this.Hide();
+                game game2 = new game(name, id, password);
+                game2.ShowDialog();
+                this.Close();
+                */
             }
         }
 
@@ -110,6 +116,12 @@ namespace muscle
                 pushup_btn.Enabled = false;
                 input_muscle_result();
                 result.Text = "근육량 " + get_muscle + " 획득";
+                /*
+                this.Hide();
+                game game2 = new game(name, id, password);
+                game2.ShowDialog();
+                this.Close();
+                */
             }
         }
 

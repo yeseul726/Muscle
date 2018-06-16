@@ -89,6 +89,13 @@ namespace muscle
                 input_fat_result();
                 jump.Enabled = false;
                 result.Text = "지방량 " + get_fat + " 획득";
+                /*
+                this.Hide();
+                game game1 = new game(name, id, password);
+                game1.ShowDialog();
+                this.Close();
+                */
+
             }
         }
 
@@ -116,6 +123,12 @@ namespace muscle
                 input_muscle_result();
                 jump.Enabled = false;
                 result.Text = "근육량 " + get_muscle + " 획득";
+                /*
+                 this.Hide();
+                game game1 = new game(name, id, password);
+                game1.ShowDialog();
+                this.Close();
+                */
             }
         }
 
@@ -226,5 +239,7 @@ namespace muscle
                     //Display Error message
                 }
         }
+
+        
     }
 }

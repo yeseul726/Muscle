@@ -29,7 +29,6 @@ namespace muscle
             id = textBox1.Text;
         }
 
-
         public login()
         {
             InitializeComponent();
@@ -121,7 +120,7 @@ namespace muscle
                     //MessageBox.Show(string.Format("{0}, {1}, {2}", SqlRs[0].ToString(), SqlRs[1].ToString(), SqlRs[2].ToString()));
                     //MessageBox.Show(password);
                     if (SqlRs[1].ToString().Equals(id))
-                    { // id가 같고
+                    { //id가 같고
                         if (SqlRs[2].ToString().Equals(password)) // password도 같으면
                         {
                             MessageBox.Show(SqlRs[0].ToString() + "님 환영합니다");
@@ -139,19 +138,24 @@ namespace muscle
                             break;
                         }
                     }
-                    else // id부터 틀리면
-                    {
-                        MessageBox.Show("아이디를 다시 확인해 주세요.");
-                        break;
-                    }
-
                 }
+
+
                 if (loginCheck != 0)
                 {
                     //game으로 들어가기
+                    //this.Hide();
                     game game = new game(name, id, password);
                     game.Show();
+                    //this.Close()
                 }
+                else
+                {
+                    MessageBox.Show(SqlRs[1].ToString());
+                    MessageBox.Show("아이디를 다시 확인해 주세요.");
+                }
+
+
 
             }
             sqlConn.Close();

@@ -31,9 +31,12 @@ namespace muscle
         {
             InitializeComponent();
 
+            //this.Invalidate();
+
             this.name = name;
             this.id = id;
             this.password = password;
+
 
             //MessageBox.Show(name + ", "+id + ", "+password);
 
@@ -74,12 +77,23 @@ namespace muscle
                     fat_limit = muscle / fat;
                     //MessageBox.Show(fat_limit.ToString());
 
-
                 }
             }
             sqlConn.Close();
 
-            if(fat_limit < 0)
+            //근육량, 지방량 표시
+
+            var gcd = GCD(muscle, fat);
+            string Ratio = string.Format("{0}:{1}", muscle / gcd, fat / gcd);
+
+            //근육량:지방량 비율로 나타내기
+            //MessageBox.Show(Ratio);
+            ratio.Text = Ratio;
+
+            //Amount_muscle.Text = muscle.ToString();
+            //.Text = fat.ToString();
+
+            if (fat_limit < 0)
             {
                 character.SizeMode = PictureBoxSizeMode.Zoom;
                 character.Image = System.Drawing.Image.FromFile("men1.png");
@@ -139,42 +153,30 @@ namespace muscle
         {
             
         }
-        /*private int ProgressMinimum = 10;
-        private int ProgressMaximum = 100;
-        private int ProgressValue = 40;
-
-        // Show the progress.
-        private void picProgress_Paint(object sender, PaintEventArgs e)
-        {
-            // Clear the background.
-            e.Graphics.Clear(picProgress.BackColor);
-
-            // Draw the progress bar.
-            float fraction =
-                (float)(ProgressValue - ProgressMinimum) /
-                (ProgressMaximum - ProgressMinimum);
-            int wid = (int)(fraction * picProgress.ClientSize.Width);
-            e.Graphics.FillRectangle(
-                Brushes.LightGreen, 0, 0, wid,
-                picProgress.ClientSize.Height);
-        }*/
+      
 
         private void show_game(PictureBox button_name)
         {
             if(button_name.ImageLocation.Equals("fastfood1.png")) //햄버거. 팔굽혀펴기
             {
+                //this.Hide();
                 pushup pushup = new pushup(name, id, password);
                 pushup.Show();
+                //this.Close();
             }
             else if(button_name.ImageLocation.Equals("fastfood2.png")) //감자튀김. 아령
             {
+                //this.Hide();
                 dumbbell dumbbell = new dumbbell(name, id, password);
                 dumbbell.Show();
+                //this.Close();
             }
             else if(button_name.ImageLocation.Equals("fastfood3.png")) //아이스크림. 줄넘기
             {
+                //this.Hide();
                 jump_rope jump_rope = new jump_rope(name, id, password);
                 jump_rope.Show();
+                //this.Close();
             }
             else {
                 MessageBox.Show("오류");
@@ -209,5 +211,22 @@ namespace muscle
             store store = new store(name, id, password);
             store.Show();
         }
+
+        public int GCD(int a, int b)
+
+        {
+            while (a != 0 && b != 0)
+            {
+                if (a > b)
+                    a %= b;
+                else
+                    b %= a;
+            }
+            if (a == 0)
+                return b;
+            else
+                return a;
+        }
+
     }
 }

@@ -34,11 +34,13 @@
             this.food_btn1 = new System.Windows.Forms.PictureBox();
             this.food_btn2 = new System.Windows.Forms.PictureBox();
             this.food_btn3 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.store = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.ratio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.character)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.food_btn1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.food_btn2)).BeginInit();
@@ -89,10 +91,6 @@
             this.food_btn3.TabStop = false;
             this.food_btn3.Click += new System.EventHandler(this.food_btn3_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -138,6 +136,29 @@
             this.store.TabStop = false;
             this.store.Click += new System.EventHandler(this.store_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "근육량 : 지방량";
+            // 
+            // ratio
+            // 
+            this.ratio.AutoSize = true;
+            this.ratio.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ratio.Location = new System.Drawing.Point(14, 31);
+            this.ratio.Name = "ratio";
+            this.ratio.Size = new System.Drawing.Size(49, 16);
+            this.ratio.TabIndex = 13;
+            this.ratio.Text = "label2";
+            // 
             // game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -146,6 +167,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(727, 450);
+            this.Controls.Add(this.ratio);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.store);
             this.Controls.Add(this.food_btn2);
             this.Controls.Add(this.pictureBox3);
@@ -167,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,10 +199,12 @@
         private System.Windows.Forms.PictureBox food_btn1;
         private System.Windows.Forms.PictureBox food_btn2;
         private System.Windows.Forms.PictureBox food_btn3;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox store;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ratio;
     }
 }

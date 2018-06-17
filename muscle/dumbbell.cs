@@ -82,6 +82,12 @@ namespace muscle
                 input_fat_result();
                 lift.Enabled = false;
                 result.Text = "지방량 " + get_fat + " 획득";
+                /*
+                this.Hide();
+                game game3 = new game(name, id, password);
+                game3.ShowDialog();
+                this.Close();
+                */
             }
         }
 
@@ -110,6 +116,12 @@ namespace muscle
                 lift.Enabled = false;
                 input_muscle_result();
                 result.Text = "근육량 " + get_muscle + " 획득";
+                /*
+                this.Hide();
+                game game3 = new game(name, id, password);
+                game3.ShowDialog();
+                this.Close();
+                */
             }
         }
 
